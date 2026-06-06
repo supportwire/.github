@@ -1,6 +1,11 @@
 <div align="center">
 
-# SupportWire
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supportwire/.github/main/profile/logo-light.svg">
+  <img alt="SupportWire" src="https://raw.githubusercontent.com/supportwire/.github/main/profile/logo-dark.svg" width="360">
+</picture>
+
+<br><br>
 
 ### Infrastructure for customer support.
 
