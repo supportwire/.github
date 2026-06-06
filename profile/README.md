@@ -11,7 +11,7 @@
 
 Fast. Easy. Deeply integrated with the tools you already live in.
 
-[**supportwire.app**](https://supportwire.app) · [Changelog](https://supportwire.app/changelog) · [Roadmap](https://supportwire.featureos.app/roadmap) · [Docs](https://supportwire.featureos.help/en/)
+[**supportwire.app**](https://supportwire.app) · [API Docs](https://developers.supportwire.app) · [Changelog](https://supportwire.app/changelog) · [Roadmap](https://supportwire.featureos.app/roadmap) · [Help](https://supportwire.featureos.help/en/)
 
 </div>
 
@@ -26,6 +26,7 @@ Support is part of the product. A slow widget during onboarding is a lost custom
 - **AI that drafts from your knowledge base.** Free to suggest, honest about pricing, only billed when it actually closes the ticket.
 - **Deep integrations.** Linear, Slack, GitHub, and more. Support lives where you already work, not in another tab.
 - **Native apps, built natively.** iPhone, iPad, Apple Watch, and Android. Each one designed for its platform, not ported to it.
+- **An API for the rest.** Build your own integrations on top of SupportWire. The [docs are right here](https://developers.supportwire.app).
 
 ## How we build
 
