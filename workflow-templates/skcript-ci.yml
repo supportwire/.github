@@ -1,0 +1,27 @@
+# Skcript CI: self-hosted airlock runners only, never ubuntu-/macos-/windows-* (GitHub-hosted).
+# No image tarballs as artifacts: images go to GHCR from skcript-deploy. Artifacts keep retention-days: 1.
+# Deploy or prod jobs never go here: they need the `case` label (skcript-deploy template).
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [$default-branch]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: [self-hosted, linux, airlock]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "lint here"
+      - run: echo "test here"
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs
+          path: log/
+          retention-days: 1
