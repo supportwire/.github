@@ -1,0 +1,1 @@
+{ "name": "Skcript CI", "description": "Lint and test on the self-hosted airlock runners.", "categories": ["Continuous integration"] }

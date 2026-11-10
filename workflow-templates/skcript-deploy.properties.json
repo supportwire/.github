@@ -1,0 +1,1 @@
+{ "name": "Skcript Deploy", "description": "Build to GHCR and deploy from CASE (case label), never cancelled mid-run.", "categories": ["Deployment"] }

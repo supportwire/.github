@@ -1,0 +1,30 @@
+# Skcript deploy: runs on CASE only (`case` label), never a laptop runner. Never cancel a running deploy.
+# Build the image and push it to GHCR; never upload image tarballs as artifacts.
+# Self-hosted runners only, never ubuntu-/macos-/windows-* (GitHub-hosted).
+name: Deploy
+on:
+  push:
+    branches: [$default-branch]
+  workflow_dispatch:
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+  packages: write
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, airlock, case]
+    timeout-minutes: 30
+    environment: production # set your environment
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          img=ghcr.io/$(echo "$GITHUB_REPOSITORY" | tr A-Z a-z):$GITHUB_SHA
+          docker buildx build --platform linux/amd64 --push -t "$img" .
+      - run: echo "deploy here, e.g. trigger the Coolify webhook for the pushed image"
